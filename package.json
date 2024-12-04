@@ -1,0 +1,8 @@
+{
+  "name": "promise-master",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pukkok/promise-master.git",
+  "author": "pukkok <krystalgggg@gmail.com>",
+  "license": "MIT"
+}
