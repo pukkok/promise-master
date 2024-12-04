@@ -1,9 +1,21 @@
-const add = (a, b) => {
-  return a + b
+const returnArr = () => {
+  return [1, 2, 3]
 }
 
-const three = (value) => {
-  return value + 3
-}
+const test = returnArr()
+console.log(test)
 
-let result = three(add(1, 2))
+test.forEach((item, idx) => {
+  test[idx] = item + 1
+})
+
+console.log(test)
+
+const testTwo = test.map((item) => {
+  return item + 1
+})
+.map((item) => {
+  return item + 10
+})
+
+console.log(testTwo)
