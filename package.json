@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/pukkok/promise-master.git",
   "author": "pukkok <krystalgggg@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
 }
