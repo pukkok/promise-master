@@ -1,7 +1,17 @@
 import http from 'http'
 import fs from 'fs'
 import path from 'path'
+
 const PORT = 8080
+
+const mainPage = (res) => {
+  const __dirname = path.resolve()
+
+  const getHTML = fs.readFileSync(path.join(__dirname, "/public/index.html"), "utf-8")
+  res.writeHead(200, {"content-type" : "text/html"})
+  res.write(getHTML)
+  res.end()
+}
 
 /**
  * 
@@ -25,20 +35,25 @@ const server = http.createServer((req, res) => {
       // * fs 패키지가 필요할 것 같은데?
       // * path 패키지도 필요할 것 같은데?
 
-      const __dirname = path.resolve()
-
-      const getHTML = fs.readFileSync(path.join(__dirname, "/public/index.html"), "utf-8")
-      res.writeHead(200, {"content-type" : "text/html"})
-      res.write(getHTML)
-      res.end()
+      mainPage(res)
 
     }
   }
+
+  let body = ""  
 
   if(req.method === "POST") {
     // TODO : 사용자의 입력만 받을거야.
     if(req.url === "/minji") {
       // TODO : index.html 에서 <form></form> 사용
+      req.on("data", (chunk) => {
+        body += chunk.toString()
+      })
+
+      req.on("end", () => {
+        console.log(body)
+        mainPage(res)
+      })
     }
 
     if(req.url === "/minseok") {
