@@ -1,6 +1,6 @@
 import mainPage from "./get-process.js"
-import fs from 'fs'
 import readDB from "../database/read-database.js"
+import saveDataBase from "../database/write-database.js"
 
 const postResponse = (req, res) => {
   let body = ""
@@ -13,11 +13,14 @@ const postResponse = (req, res) => {
   req.on("end", () => {
     if(body !== "") {
       const [key, value] = body.split('=')
-      const info = JSON.stringify({[key] : value})
 
       readDB()
       .then(parseData => {
-        console.log(parseData[key])
+        const updateData = {
+          ...parseData,
+          [key] : value
+        }
+        saveDataBase(updateData)
       })
     }
 
