@@ -5,6 +5,10 @@
   "repository": "https://github.com/pukkok/promise-master.git",
   "author": "pukkok <krystalgggg@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "type": "module",
   "dependencies": {
   }
 }
