@@ -6,6 +6,5 @@
   "author": "pukkok <krystalgggg@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.4.7"
   }
 }
