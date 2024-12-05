@@ -7,13 +7,16 @@ const loadDB = () => {
     fs.readFile(storagePath, (err, data) => {
       if(err) {
         // 데이터베이스가 없다면, 데이터 베이스를 생성한다.
-        fs.writeFile(storagePath, {}, (err) => {
-          if(err) return console.error('파일 쓰기 실패')
-          
-          console.log("새로운 데이터베이스가 생성되었습니다.")
-        })
+        if(err.code === "ENOENT") {
+          fs.writeFile(storagePath, JSON.stringify(""), (err) => {
+            if(err) return console.error('파일 쓰기 실패')
+              console.log("새로운 데이터베이스가 생성되었습니다.")
+          })
+          resolve(JSON.stringify(""))
+        }
+      } else {
+        resolve(JSON.parse(data.toString()))
       }
-      resolve(JSON.parse(data.toString()))
     })
   })
 
