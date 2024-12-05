@@ -1,19 +1,23 @@
 import mainPage from "./get-process.js"
 import fs from 'fs'
+import readDB from "../database/read-database.js"
 
+const postResponse = (req, res) => {
+  let body = ""
 
-const postResponse = (req, res, body) => {
   req.on("data", (chunk) => {
-    body += chunk.toString()
+    body += decodeURIComponent(String(chunk).replace('+', ' ').trim())
+    
   })
 
   req.on("end", () => {
-    console.log(body)
     if(body !== "") {
-      fs.writeFile("./storage/minji.txt", body, (err) => {
-        if(err) return console.err(err)
-        
-        console.log('파일이 저장되었습니다.')
+      const [key, value] = body.split('=')
+      const info = JSON.stringify({[key] : value})
+
+      readDB()
+      .then(parseData => {
+        console.log(parseData[key])
       })
     }
 
