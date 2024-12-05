@@ -8,20 +8,32 @@
 <body>
   <div id="root">
     <!-- TODO : /minji라는 주소로 form을 만들고 POST, textarea 태그 사용-->
-    <form action="/minji" method="post">
+    <!-- <form action="/minji" method="post">
       <textarea name="bio" placeholder="민지에 관해 작성해 주세요."></textarea>
       <input type="submit" value="제출">
-    </form>
+    </form> -->
+    
+    <form action="/send-data" method="post">
+      <textarea name="bio" placeholder="자신에 대해 설명해주세요."></textarea>
 
-    <!-- TODO : /minseok 현재 숫자를 받을거야 "POST" select-option 이용 -->
-    <form action="/minseok" method="post">
-      <select title="민석" name="level">
+      <select title="level-selector" name="level">
+        <option value="0">레벨 선택</option>
         <option value="1">1레벨</option>
         <option value="2">2레벨</option>
         <option value="3">3레벨</option>
       </select>
       <input type="submit" value="제출">
     </form>
+    <!-- TODO : /minseok 현재 숫자를 받을거야 "POST" select-option 이용 -->
+    <!-- <form action="/minseok" method="post">
+      <select title="민석" name="level">
+        <option value="0">레벨 선택</option>
+        <option value="1">1레벨</option>
+        <option value="2">2레벨</option>
+        <option value="3">3레벨</option>
+      </select>
+      <input type="submit" value="제출">
+    </form> -->
   </div>
 </body>
 </html>
