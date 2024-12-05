@@ -12,15 +12,13 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  let body = ""  
-
   if(req.method === "POST") {
     if(req.url === "/minji") {
-      postResponse(req, res, body)
+      postResponse(req, res)
     }
 
     if(req.url === "/minseok") {
-      postResponse(req, res, body)
+      postResponse(req, res)
     }
   }
 
