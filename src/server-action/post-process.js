@@ -1,6 +1,6 @@
 import mainPage from "./get-process.js"
-import readDB from "../database/read-database.js"
-import saveDataBase from "../database/write-database.js"
+import loadDB from "../database/load-database.js"
+import saveDataBase from "../database/save-database.js"
 
 const postResponse = (req, res) => {
   let body = ""
@@ -14,7 +14,7 @@ const postResponse = (req, res) => {
     if(body !== "") {
       const [key, value] = body.split('=')
 
-      readDB()
+      loadDB()
       .then(parseData => {
         const updateData = {
           ...parseData,

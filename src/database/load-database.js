@@ -2,7 +2,7 @@ import fs from 'fs'
 import { storagePath } from './storage-path.js'
 
 // 스토리지 읽어오기
-const readDB = () => {
+const loadDB = () => {
   return new Promise((resolve, reject) => {
     fs.readFile(storagePath, (err, data) => {
       if(err) {
@@ -19,4 +19,4 @@ const readDB = () => {
 
 }
 
-export default readDB
+export default loadDB
