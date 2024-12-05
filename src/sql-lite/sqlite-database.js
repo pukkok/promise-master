@@ -4,8 +4,8 @@ const db = new DatabaseSync(':memory:')
 // 객체의 키와 타입을 생성한다.
 db.exec(`
   CREATE TABLE data(
-    name TEXT PRIMARY KEY,
-    value TEXT,
+    id TEXT PRIMARY KEY,
+    level TEXT,
     bio TEXT
   ) STRICT
 `)
