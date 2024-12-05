@@ -5,9 +5,6 @@ import postResponse from './server-action/post-process.js'
 
 const PORT = 8080
 
-
-
-
 const server = http.createServer((req, res) => {
   if(req.method === "GET") {
     if(req.url === "/") {
