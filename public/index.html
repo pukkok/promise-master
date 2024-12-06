@@ -4,20 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    form{
+      border: solid 1px #836efa;
+      width: 300px;
+      padding: 10px 20px;
+    }
+    form > div{
+      display: flex;
+      flex-direction: column;
+    }
+    textarea{
+      padding: 6px 8px;
+      min-height: 200px;
+    }
+
+    input[type=text]{
+      padding: 6px 8px;
+    }
+    select{
+      padding: 4px 8px;
+    }
+
+    input[type=submit] {
+      background-color: #836efa;
+      color: #fff;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #5c43ec;
+    }
+
+  </style>
 </head>
 <body>
   <div id="root">
     <form action="/send-data" method="post">
-      <input name="id" value="" placeholder="아이디 입력">
-      <textarea name="bio" placeholder="자신에 대해 설명해주세요."></textarea>
-      <br>
-      <select title="level-selector" name="level">
-        <option value="">레벨 선택</option>
-        <option value="1">1레벨</option>
-        <option value="2">2레벨</option>
-        <option value="3">3레벨</option>
-      </select>
-      <input type="submit" value="제출">
+      <div>
+        <input type="text" name="id" value="" placeholder="아이디 입력">
+        <textarea name="bio" placeholder="자신에 대해 설명해주세요."></textarea>
+        <select title="level-selector" name="level">
+          <option value="">레벨 선택</option>
+          <option value="1">1레벨</option>
+          <option value="2">2레벨</option>
+          <option value="3">3레벨</option>
+        </select>
+        <input type="submit" value="제출">
+      </div>
     </form>
   </div>
 </body>
