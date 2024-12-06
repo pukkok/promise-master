@@ -5,8 +5,8 @@ const db = new DatabaseSync(':memory:')
 db.exec(`
   CREATE TABLE data(
     id TEXT PRIMARY KEY,
-    level TEXT,
-    bio TEXT
+    bio TEXT,
+    level TEXT
   ) STRICT
 `)
 // 자리에 맞춰 키와 값을 넣을 수 있다.
